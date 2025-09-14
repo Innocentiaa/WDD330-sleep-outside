@@ -25,3 +25,5 @@ _BYU-Pathway Worldwide improves lives through access to spiritually based, onlin
 
 
 
+This project is deployed on Netlify. You can view it here:  
+👉 [Live Demo] (https://68c74b12e04082ea79335f8b--regal-sprinkles-7e5cb5.netlify.app/)
