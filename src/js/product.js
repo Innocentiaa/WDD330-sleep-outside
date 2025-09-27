@@ -1,6 +1,7 @@
 import { getParam } from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
 import ProductDetails from "./ProductDetails.mjs";
+import { addToCart } from "./cart.js"; // import the addToCart function
 
 const dataSource = new ProductData("tents");
 const productID = getParam("product");
@@ -8,13 +9,17 @@ const productID = getParam("product");
 const product = new ProductDetails(productID, dataSource);
 product.init();
 
-// add to cart button event handler
-//async function addToCartHandler(e) {
-//  const product = await dataSource.findProductById(e.target.dataset.id);
-// addProductToCart(product);
-//}
+// Add to Cart button event handler
+async function addToCartHandler() {
+    const productItem = await dataSource.findProductById(productID);
+    if (productItem) {
+        addToCart(productItem);
+        alert(`${productItem.Name} added to cart!`);
+    }
+}
 
-// add listener to Add to Cart button
-//document
-//.getElementById("addToCart")
-//.addEventListener("click", addToCartHandler);
+// Attach listener to Add to Cart button
+const addToCartButton = document.getElementById("addToCart");
+if (addToCartButton) {
+    addToCartButton.addEventListener("click", addToCartHandler);
+}
