@@ -261,3 +261,16 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+.cart-card {
+  position: relative;
+}
+
+.cart-card .remove-item {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  color: red;
+}
