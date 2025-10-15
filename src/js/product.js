@@ -1,8 +1,6 @@
-import { getParam } from "./utils.mjs";
-import ProductData from "./ProductData.mjs";
-import ProductDetails from "./ProductDetails.mjs";
-import { addToCart } from "./cart.js"; // import the addToCart function
-
+import { getParam, addToCart } from "./utils.mjs";
+import ProductData from "./productData.mjs";
+import ProductDetails from "./productDetails.mjs";
 const dataSource = new ProductData("tents");
 const productID = getParam("product");
 

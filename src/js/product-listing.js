@@ -1,7 +1,7 @@
 import { loadHeaderFooter, getParam } from "./utils.mjs";
-import ProductData from "./ProductData.mjs";
-import ProductList from "./ProductList.mjs";
-import Alert from "./Alert.js";
+import ProductData from "./productData.mjs";
+import ProductList from "./productList.mjs";
+import Alert from "./alerts.js";
 
 const alerts = new Alert("/json/alerts.json", "main");
 alerts.init();

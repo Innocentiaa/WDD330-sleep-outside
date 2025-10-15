@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Wellness & Motivation Hub</title>
+    <meta name="description"
+        content="Your daily source for motivational quotes, wellness tips, and curated content for a healthier lifestyle.">
+    <meta name="author" content="Innocentia Chinweotito">
+
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Define custom CSS variables for light and dark themes */
+        :root {
+            /* Light Theme Defaults */
+            --bg-color: #f7f9fc;
+            --card-bg: #ffffff;
+            --text-color: #1f2937;
+            --primary-color: #28a745;
+            --primary-dark-color: #20c997;
+        }
+
+        .dark {
+            /* Dark Theme Overrides */
+            --bg-color: #111827;
+            --card-bg: #1f2937;
+            --text-color: #f3f4f6;
+            --primary-color: #20c997;
+            --primary-dark-color: #28a745;
+        }
+
+        /* Apply theme variables globally */
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Generic Card Styling */
+        .card {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+        }
+
+        /* Animated Content for Fade-in Effect */
+        .animated-content {
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-light': '#28a745', // Green
+                        'primary-dark': '#20c997', // Teal
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'], // Added a secondary font for headers
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Main Header (SEMANTIC: <header>) -->
+    <header class="shadow-lg py-4 sticky top-0 z-20" style="background-color: var(--bg-color);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <!-- COURSE STANDARD: Only one H1 per page -->
+            <h1 class="text-3xl font-heading font-bold transition duration-300" style="color: var(--primary-color);">
+                Wellness Hub
+            </h1>
+
+            <div class="flex items-center space-x-4">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition duration-300"
+                    style="color: var(--text-color);">
+                    <!-- Sun/Moon Icon SVG -->
+                    <svg class="w-7 h-7 dark:text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="max-w-7xl mx-auto px-4 pt-4 sm:px-6 lg:px-8 z-10">
+        <div class="p-3 rounded-xl shadow-md flex flex-wrap justify-around bg-card-bg gap-2"
+            style="background-color: var(--card-bg);">
+            <!-- Event Listener #5: Navigation -->
+            <button class="nav-button p-2 text-center flex-1 min-w-[100px] hover:text-primary-dark transition duration-200" data-page="home">Home</button>
+            <button class="nav-button p-2 text-center flex-1 min-w-[100px] hover:text-primary-dark transition duration-200" data-page="tips">Wellness Tips</button>
+            <button class="nav-button p-2 text-center flex-1 min-w-[100px] hover:text-primary-dark transition duration-200" data-page="favorites">Favorites</button>
+        </div>
+    </nav>
+
+    <!-- Main Content Container (SEMANTIC: <main>) -->
+    <main id="content-container" class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+
+        <!-- HOME VIEW & TIPS VIEW -->
+        <!-- Responsive Fix: Use flex-col (stacks vertically) on mobile, then switch to a 3-column grid on large screens -->
+        <div id="home-section" class="flex flex-col lg:grid lg:grid-cols-3 gap-8">
+
+            <!-- Main Content Area (Quotes & Tips) - Takes 2/3 space on large screens -->
+            <div class="lg:col-span-2 space-y-8 order-1"> <!-- order-1 ensures it appears first on mobile -->
+
+                <!-- Section 1: Daily Motivational Quote (SEMANTIC: <section>) -->
+                <section id="quote-section" class="p-6 sm:p-8 card text-center rounded-xl border-t-8 shadow-xl"
+                    style="border-color: var(--primary-color);">
+                    <h2 class="text-2xl font-heading mb-4 border-b pb-2">Your Daily Motivation</h2>
+                    <div id="quote-content">
+                        <p class="text-xl italic">Loading...</p>
+                    </div>
+                </section>
+
+                <!-- Section 2: Wellness Tips (SEMANTIC: <section>) -->
+                <section id="tips-section" class="space-y-6">
+                    <h2 class="text-2xl font-heading">Health and Wellness Tips</h2>
+
+                    <!-- Search and Filter Bar: Fully responsive stacking -->
+                    <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                        <!-- Event Listener #3: Search Input -->
+                        <input type="search" id="search-input" placeholder="Search tips..."
+                            class="w-full p-3 rounded-lg border-2 focus:ring-2 focus:ring-primary-light transition duration-200"
+                            style="border-color: var(--primary-color); background-color: var(--card-bg); color: var(--text-color);">
+
+                        <!-- Event Listener #4: Category Filter -->
+                        <select id="category-filter" class="w-full sm:w-auto p-3 rounded-lg border-2 cursor-pointer"
+                            style="border-color: var(--primary-color); background-color: var(--card-bg); color: var(--text-color);">
+                            <option value="all">All Categories</option>
+                            <option value="Meditation">Meditation</option>
+                            <option value="Fitness">Fitness</option>
+                            <option value="Growth">Personal Growth</option>
+                        </select>
+                    </div>
+
+                    <div id="tips-list" class="space-y-4">
+                        <p class="text-center text-gray-500">Tips will appear here...</p>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Sidebar (Curated Videos) (SEMANTIC: <aside>) - Takes 1/3 space on large screens -->
+            <aside id="video-sidebar" class="lg:col-span-1 space-y-8 order-2 lg:order-2"> <!-- order-2 ensures it comes after main content on mobile -->
+                <section id="video-section" class="p-4 card rounded-xl border-b-8 shadow-xl"
+                    style="border-color: var(--primary-dark-color);">
+                    <h2 class="text-2xl font-heading mb-4 border-b pb-2">Daily Wellness Video</h2>
+                    <div id="video-list" class="space-y-4">
+                        <!-- Videos are rendered with a responsive aspect-video class in JS -->
+                        <p class="text-center text-gray-500">Videos will load here...</p>
+                    </div>
+                </section>
+            </aside>
+        </div>
+
+        <!-- FAVORITES VIEW (Hidden initially, shown by JS) -->
+        <section id="favorites-section" class="hidden space-y-8">
+            <h2 class="text-3xl font-heading">My Saved Favorites</h2>
+            <div id="favorites-list" class="space-y-4">
+                <!-- Favorites content dynamically generated here -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (SEMANTIC: <footer>) -->
+    <footer class="mt-12 py-6 text-center" style="background-color: var(--card-bg);">
+        <p class="text-sm" style="color: var(--text-color);">
+            &copy; 2025 Daily Wellness & Motivation Hub. Innocentia Chinweotito | WDD330 Final Project.
+        </p>
+    </footer>
+
+    <!-- Link to your ES Module (js/app.js) -->
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

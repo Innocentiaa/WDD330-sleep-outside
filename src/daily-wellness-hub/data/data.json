@@ -1,0 +1,53 @@
+[
+    {
+        "id": "tip-1",
+        "title": "The 5-Minute Meditation Reset",
+        "content": "Take five minutes right now to focus purely on your breath. Notice the sensation of air entering and leaving your body. This small reset significantly reduces stress and enhances focus. You can do this at your desk or while waiting for your coffee.",
+        "category": "Meditation",
+        "source": "Mindful World Institute",
+        "durationMinutes": 5,
+        "difficulty": "Easy",
+        "isTrending": true,
+        "keywords": [
+            "mindfulness",
+            "stress",
+            "breathing",
+            "focus"
+        ],
+        "publishedDate": "2025-05-20"
+    },
+    {
+        "id": "tip-2",
+        "title": "Hydration and Energy Kickstart",
+        "content": "Dehydration is a leading cause of afternoon fatigue. Aim to drink a full glass (8oz) of water immediately upon waking up to jumpstart your metabolism and boost energy levels naturally, before reaching for caffeine.",
+        "category": "Fitness",
+        "source": "Health Daily Research",
+        "durationMinutes": 0,
+        "difficulty": "Easy",
+        "isTrending": false,
+        "keywords": [
+            "water",
+            "fatigue",
+            "energy",
+            "metabolism"
+        ],
+        "publishedDate": "2025-05-18"
+    },
+    {
+        "id": "tip-3",
+        "title": "Gratitude Journaling for Sleep",
+        "content": "Spend 3 minutes before bed listing three specific things you are genuinely grateful for that day. This mental practice re-wires your brain for positivity, calms racing thoughts, and significantly improves sleep quality and duration.",
+        "category": "Growth",
+        "source": "Positive Psychology Institute",
+        "durationMinutes": 3,
+        "difficulty": "Medium",
+        "isTrending": true,
+        "keywords": [
+            "positivity",
+            "sleep",
+            "journaling",
+            "mental health"
+        ],
+        "publishedDate": "2025-05-21"
+    }
+]
