@@ -55,3 +55,26 @@ export async function loadHeaderFooter() {
     console.error("Error loading header or footer:", error);
   }
 }
+
+export function addToCart(product) {
+  // Get current cart from localStorage or start with an empty array
+  let cart = getLocalStorage("so-cart") || [];
+
+  // Check if the product is already in the cart
+  const existingItem = cart.find(item => item.Id === product.Id);
+
+  if (existingItem) {
+    // Optional: You can add quantity handling here later
+    alert("This item is already in your cart!");
+    return;
+  }
+
+  // Add the new product
+  cart.push(product);
+
+  // Save updated cart to localStorage
+  setLocalStorage("so-cart", cart);
+
+  // Optional: Confirmation feedback
+  alert(`${product.Name} added to cart!`);
+}

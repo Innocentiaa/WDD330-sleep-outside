@@ -1,0 +1,89 @@
+/* ------------------------------------------------------------------- */
+/* CSS/style.css - Main Stylesheet */
+/* ------------------------------------------------------------------- */
+
+/* Typography Imports (Poppins for Headings, Roboto for Body) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400&display=swap');
+
+/* --- Advanced CSS Feature #1: Custom Keyframes (CSS Animation) --- */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Advanced CSS Feature #2: Custom Properties for Dark/Light Mode Transition (CSS Transition) --- */
+:root {
+    /* Light Mode Variables */
+    --bg-color: #ffffff;
+    --text-color: #1a202c;
+    /* Dark text for contrast */
+    --card-bg: #f0f0f0;
+    --primary-color: #28a745;
+    --primary-dark-color: #20c997;
+    /* Teal for dark mode primary */
+
+    /* Global Transition for smooth theme change */
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.dark {
+    /* Dark Mode Variables */
+    --bg-color: #1c1c1c;
+    --text-color: #ffffff;
+    --card-bg: #2d3748;
+    /* Darker gray for cards */
+    --primary-color: #20c997;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    /* Responsive Check: Prevent horizontal scrolling */
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* --- Advanced CSS Feature #3: Hover Effect for Cards --- */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 0.75rem;
+    /* rounded-xl */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Utility for the fade-in animation (for content loading) */
+.animated-content {
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Nav Button Styling for visual feedback */
+.nav-button {
+    color: var(--text-color);
+    transition: color 0.2s ease;
+    padding: 0.5rem 1rem;
+}
+
+.nav-button:hover,
+.nav-button.font-bold {
+    color: var(--primary-color);
+}

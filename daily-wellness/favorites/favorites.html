@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Favorites - Daily Wellness & Motivation Hub</title>
+    <meta name="description" content="View your saved motivational quotes and favorite wellness videos.">
+    <meta name="author" content="Your Name">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div id="app-container" class="full-width-layout">
+
+        <nav class="nav-section">
+            <header>
+                <h1>Wellness Hub</h1>
+                <button id="theme-toggle" aria-label="Toggle dark and light mode">
+                    <span id="theme-icon">☀️</span>
+                </button>
+            </header>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tips.html">Wellness Tips</a></li>
+                <li><a href="favorites.html" class="active">My Favorites</a></li>
+                <li><a href="#">Search</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <section id="favorites-section" class="content-block">
+                <h2>My Saved Items</h2>
+
+                <div id="favorites-list">
+                    <p>You haven't saved any quotes or videos yet.</p>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+    <script src="api.js" type="module"></script>
+    <script src="app.js" type="module"></script>
+</body>
+
+</html>
